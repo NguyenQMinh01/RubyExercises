@@ -56,7 +56,7 @@ def input_output_array2
 end
 
 
-test_array        #goi ham de thuc thi
+input_output_array2        #goi ham de thuc thi
 
 
 
