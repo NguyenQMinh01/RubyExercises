@@ -6,13 +6,13 @@ print "Cach 1\n"
 def input_output_array 
     begin                                   #vong lap do de bat loi khi nhap be hon 0 va lon hon 99
       print "nhap so luong tu 0 den 99: "
-      number = Integer(gets.chomp)
+      number = Integer(gets.chomp,10)
       if number > 0 && number <= 99
         array = Array.new()
          for i in (1..number)
            begin
                 print "nhap so: "                 #thoa dieu kien thi else de thuc hien trong vong lap for
-                element = Integer(gets.chomp)
+                element = Integer(gets.chomp,10)
                 break if element == -1
                 if (element < -1)
                     raise 
@@ -45,7 +45,7 @@ print "Cach 2\n"
 def input_output_array 
     begin                                   
       print "nhap so luong tu 0 den 99: "
-      number = Integer(gets.chomp)
+      number = Integer(gets.chomp,10)
       if number > 0 && number <= 99
         array = Array.new()
            begin
@@ -53,7 +53,7 @@ def input_output_array
             while i < number
                begin
                   print "nhap so: "               
-                  element = Integer(gets.chomp)        #nhap so phan tu tu ban phim
+                  element = Integer(gets.chomp,10)        #nhap so phan tu tu ban phim
                   break if element == -1
                   if (element < -1)
                      raise 
