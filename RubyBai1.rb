@@ -7,7 +7,7 @@ def input_output_array
     begin                                   #vong lap do de bat loi khi nhap be hon 0 va lon hon 99
       print "nhap so luong tu 0 den 99: "
       number = Integer(gets.chomp,10)
-      if number > 0 && number <= 99
+      if (number > 0 && number <= 99)
         array = Array.new()
          for i in (1..number)
            begin
@@ -25,6 +25,8 @@ def input_output_array
            end  
          end
        puts "Day so vua nhap la: #{array} \nSo be nhat la: #{array.min}"
+      else
+        raise
       end
     rescue
       print "nhap sai vui long nhap lai!\n "
