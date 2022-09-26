@@ -15,14 +15,14 @@ def ReadAndImportFile(filename)
     file_csv_dir = filename
 
     connection = ActiveRecord::Base.connection
-    rc = connection.raw_connection
-    rc.exec("COPY users ( name, email, address, phone, date_of_birth, profile) FROM STDIN WITH HEADER CSV")
+    raw_connection = connection.raw_connection
+    raw_connection.exec("COPY users ( name, email, address, phone, date_of_birth, profile) FROM STDIN WITH HEADER CSV")
 
     file = File.open(file_csv_dir, 'r')
     while !file.eof?
-        rc.put_copy_data(file.readline)
+        raw_connection.put_copy_data(file.readline)
     end
-    rc.put_copy_end
+    raw_connection.put_copy_end
 end
 
 
@@ -32,3 +32,4 @@ def calculation_time
 end
 
 calculation_time
+#Time read and import file into database is ~ 1 - 2 seconds

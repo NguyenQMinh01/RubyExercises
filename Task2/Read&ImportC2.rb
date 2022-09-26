@@ -18,23 +18,23 @@ ActiveRecord::Base.establish_connection(
     database:    'postgres'
 )
 
-class User < ActiveRecord::Base
-end
+User = ActiveRecord::Base.connection
 
 def ReadAndImportFile(filename)
   calculation_time do
   CSV.new(File.read(filename))
     File.open((filename), 'r') do |file|
-      User.connection.raw_connection.copy_data %{copy users from stdin with csv delimiter ',' quote '"'} do
+      User.raw_connection.copy_data %{COPY users ( name, email, address, phone, date_of_birth, profile) FROM STDIN WITH HEADER CSV} do
         while line = file.gets do
-          User.connection.raw_connection.put_copy_data line
+          User.raw_connection.put_copy_data line
         end
       end
     end
   end
 end
 
-ReadAndImportFile("file.csv")
 
+ReadAndImportFile("file.csv")
+#Time read and import file into database is ~ 1 - 2 seconds
 
 
