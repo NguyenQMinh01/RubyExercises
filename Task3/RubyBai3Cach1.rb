@@ -3,7 +3,7 @@ MIN = 0
 
 begin
     print "nhap: "
-    $number = Integer(gets.chomp)
+    $number = Integer(gets.chomp,10)
     if ($number > MIN && $number <= MAX)
         $array = Array.new($number) { rand(1..9) }
         print "mang vua nhap la #{$array}"
@@ -19,7 +19,7 @@ increasing_array = [$array[0]]
 number_array = 0
 for i in 1...$array.size
     if $array[i] > $array[i-1]
-        increasing_array.push($a[i])
+        increasing_array.push($array[i])
     else
         puts "\nmang tang #{number_array}: #{increasing_array.to_s}"
         increasing_array.clear
