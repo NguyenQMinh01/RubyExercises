@@ -1,17 +1,17 @@
 #2022/09/19 Nguyen Quang Minh
 #BAI TAP 1
-#Cach 1 dung if else long for:
-#su dung 
+MAX = 99
+MIN = 0
 print "Cach 1\n"
 def input_output_array 
-    begin                                   #vong lap do de bat loi khi nhap be hon 0 va lon hon 99
+    begin                                  
       print "nhap so luong tu 0 den 99: "
       number = Integer(gets.chomp,10)
-      if (number > 0 && number <= 99)
-        array = Array.new()
+      array = Array.new()
+      if (number > MIN && number <= MAX)
          for i in (1..number)
            begin
-                print "nhap so: "                 #thoa dieu kien thi else de thuc hien trong vong lap for
+                print "nhap so: "                 
                 element = Integer(gets.chomp,10)
                 break if element == -1
                 if (element < -1)
@@ -24,7 +24,7 @@ def input_output_array
                 retry  
            end  
          end
-       puts "Day so vua nhap la: #{array} \nSo be nhat la: #{array.min}"
+        puts "Day so vua nhap la: #{array} \nSo be nhat la: #{array.min}"
       else
         raise
       end
@@ -48,8 +48,8 @@ def input_output_array
     begin                                   
       print "nhap so luong tu 0 den 99: "
       number = Integer(gets.chomp,10)
-      if number > 0 && number <= 99
-        array = Array.new()
+      array = Array.new()
+      if (number > MIN && number <= MAX)
            begin
             i = 0             
             while i < number
@@ -69,7 +69,9 @@ def input_output_array
                 print "nhap sai vui long nhap lai! \n"
                 retry  
            end
-    end
+          else
+            raise
+          end
          puts "Day so vua nhap la: #{array} \nSo be nhat la: #{array.min}"
     rescue
         print "nhap sai vui long nhap lai!\n "
