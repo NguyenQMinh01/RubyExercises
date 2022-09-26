@@ -1,6 +1,8 @@
 require 'csv'
 require 'benchmark'
 
+#Time create_file csv is ~3-4 seconds
+
 SIZE_IN_CSV = 500000
 
 LastName = ['Minh', 'Ha', 'Vinh', 'Thu', 'Hung', 'Hieu', 'Huy', 'Dat', 'Vu', 'Anh', 'Linh', 'Hoang', 'Duc', 'Tran', 'Suong', 'Ly', 'Phong', 'Nhi']
